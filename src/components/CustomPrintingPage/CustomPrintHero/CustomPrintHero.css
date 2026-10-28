@@ -1,0 +1,64 @@
+/* Custom Print Hero — compatible with CustomPrintHero.jsx */
+.custom-print-hero {
+  --hero-navy: #0b1b3a;
+  --hero-pill: #162c53;
+  --hero-line: rgba(49, 91, 145, 0.2);
+  --hero-text: #fff;
+  --hero-muted: #cbd8f1;
+  --hero-accent: #00c8d0;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 405px;
+  overflow: hidden;
+  color: var(--hero-text);
+  background: var(--hero-navy);
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 9px, var(--hero-line) 9px, var(--hero-line) 10px);
+}
+.custom-print-hero *, .custom-print-hero *::before, .custom-print-hero *::after { box-sizing: border-box; }
+.custom-print-hero__inner { width: min(1200px, calc(100% - 48px)); margin-inline: auto; padding-block: 49px 56px; }
+.custom-print-hero__breadcrumb { display:flex; align-items:center; flex-wrap:wrap; gap:7px; margin-bottom:21px; color:var(--hero-text); font-size:14px; line-height:1.5; opacity:0; transform:translateY(12px); transition:opacity .5s ease,transform .5s ease; }
+.custom-print-hero__breadcrumb a { color:var(--hero-muted); text-decoration:none; transition:color .18s ease; }
+.custom-print-hero__breadcrumb a:hover { color:#fff; }
+.custom-print-hero__content { max-width:850px; }
+.custom-print-hero__title { max-width:850px; margin:0; color:var(--hero-text); font-family:inherit; font-size:clamp(36px,4vw,52px); font-weight:800; letter-spacing:-1.7px; line-height:1.13; text-wrap:balance; opacity:0; transform:translateY(24px); transition:opacity .65s ease .08s,transform .65s cubic-bezier(.2,.7,.2,1) .08s; }
+.custom-print-hero__description { max-width:720px; margin:19px 0 21px; color:var(--hero-muted); font-size:17px; font-weight:400; line-height:1.65; opacity:0; transform:translateY(20px); transition:opacity .65s ease .16s,transform .65s cubic-bezier(.2,.7,.2,1) .16s; }
+.custom-print-hero__switch { position:relative; isolation:isolate; display:inline-flex; align-items:center; gap:4px; min-height:56px; max-width:100%; padding:5px; border:1px solid rgba(255,255,255,.04); border-radius:999px; background:var(--hero-pill); opacity:0; transform:translateY(18px); transition:opacity .6s ease .24s,transform .6s cubic-bezier(.2,.7,.2,1) .24s; }
+.custom-print-hero__switch-indicator { position:absolute; z-index:-1; top:5px; bottom:5px; left:5px; width:calc(41% - 2px); border-radius:999px; background:#fff; pointer-events:none; transition:left .35s cubic-bezier(.2,.75,.25,1),width .35s cubic-bezier(.2,.75,.25,1); }
+.custom-print-hero__switch-indicator.is-design { left:calc(41% + 1px); width:calc(59% - 7px); }
+.custom-print-hero__switch-button { position:relative; z-index:1; display:inline-flex; align-items:center; justify-content:center; min-height:42px; padding:0 20px; border:1px solid transparent; border-radius:999px; background:transparent; color:var(--hero-muted); font:600 14px/1.2 inherit; text-align:center; white-space:nowrap; cursor:pointer; transition:color .25s ease,transform .2s ease; }
+.custom-print-hero__switch-button:first-of-type { min-width:145px; }
+.custom-print-hero__switch-button:last-of-type { min-width:195px; }
+.custom-print-hero__switch-button.is-active { color:var(--hero-navy); }
+.custom-print-hero__switch-button:not(.is-active):hover { color:#fff; }
+.custom-print-hero__switch-button:active { transform:scale(.98); }
+.custom-print-hero__breadcrumb a:focus-visible, .custom-print-hero__switch-button:focus-visible { outline:2px solid var(--hero-accent); outline-offset:3px; }
+.custom-print-hero.is-visible .custom-print-hero__breadcrumb, .custom-print-hero.is-visible .custom-print-hero__title, .custom-print-hero.is-visible .custom-print-hero__description, .custom-print-hero.is-visible .custom-print-hero__switch { opacity:1; transform:translateY(0); }
+.custom-print-form-section { width:100%; background:#f5f8fc; }
+.custom-print-form-section__content { width:100%; min-width:0; animation:custom-form-reveal .4s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes custom-form-reveal { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+@media(max-width:768px) {
+ .custom-print-hero { min-height:auto; }
+ .custom-print-hero__inner { width:calc(100% - 40px); padding-block:38px 44px; }
+ .custom-print-hero__breadcrumb { margin-bottom:18px; font-size:13px; }
+ .custom-print-hero__title { font-size:clamp(34px,6vw,44px); letter-spacing:-1.2px; line-height:1.16; }
+ .custom-print-hero__description { margin-block:17px 21px; font-size:16px; line-height:1.65; }
+ .custom-print-hero__desktop-break { display:none; }
+ .custom-print-hero__switch-button { padding-inline:14px; font-size:13px; }
+ .custom-print-hero__switch-button:first-of-type { min-width:125px; }
+ .custom-print-hero__switch-button:last-of-type { min-width:175px; }
+}
+@media(max-width:480px) {
+ .custom-print-hero__inner { width:calc(100% - 32px); padding-block:30px 36px; }
+ .custom-print-hero__breadcrumb { gap:6px; margin-bottom:17px; }
+ .custom-print-hero__title { font-size:clamp(30px,8vw,36px); letter-spacing:-.9px; line-height:1.18; }
+ .custom-print-hero__description { margin-block:15px 20px; font-size:15px; line-height:1.7; }
+ .custom-print-hero__switch { display:flex; width:100%; min-height:auto; gap:3px; padding:4px; border-radius:18px; }
+ .custom-print-hero__switch-button, .custom-print-hero__switch-button:first-of-type, .custom-print-hero__switch-button:last-of-type { flex:1; min-width:0; min-height:48px; padding:8px 6px; white-space:normal; font-size:12px; }
+ .custom-print-hero__switch-indicator { top:4px; bottom:4px; left:4px; width:calc(50% - 5px); border-radius:14px; }
+ .custom-print-hero__switch-indicator.is-design { left:50%; width:calc(50% - 4px); }
+}
+@media(prefers-reduced-motion:reduce) {
+ .custom-print-hero__breadcrumb, .custom-print-hero__title, .custom-print-hero__description, .custom-print-hero__switch, .custom-print-hero__switch-indicator, .custom-print-hero__switch-button, .custom-print-form-section__content { animation:none!important; transition:none!important; transform:none!important; }
+ .custom-print-hero__breadcrumb, .custom-print-hero__title, .custom-print-hero__description, .custom-print-hero__switch { opacity:1; }
+}

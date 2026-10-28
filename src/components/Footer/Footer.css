@@ -1,0 +1,441 @@
+/* =========================================
+   PROJENIUS 3D — FOOTER
+========================================= */
+
+.pj-footer {
+  --footer-bg: #061025;
+  --footer-text: #e2eaff;
+  --footer-muted: #b8c6e1;
+  --footer-teal: #00d3df;
+  --footer-border: #1c2b49;
+  --footer-logo-bg: #15284a;
+
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  overflow: hidden;
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  border-radius: 0 0 8px 8px;
+}
+
+/* Subtle top accent */
+.pj-footer::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #ff5364 12%,
+    var(--footer-teal) 50%,
+    #ff5364 88%,
+    transparent 100%
+  );
+  opacity: 0.85;
+}
+
+.pj-footer__container {
+  width: min(1190px, calc(100% - 64px));
+  margin-inline: auto;
+  padding-top: 64px;
+}
+
+/* =========================================
+   MAIN GRID
+========================================= */
+
+.pj-footer__main {
+  display: grid;
+  grid-template-columns:
+    minmax(260px, 1.55fr)
+    minmax(120px, 0.75fr)
+    minmax(140px, 0.75fr)
+    minmax(175px, 0.8fr);
+  gap: clamp(28px, 4.5vw, 70px);
+  padding-bottom: 39px;
+}
+
+.pj-footer__brand-column,
+.pj-footer__column {
+  min-width: 0;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.pj-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  text-decoration: none;
+}
+
+.pj-footer__brand-name {
+  white-space: nowrap;
+}
+
+.pj-footer__brand-name strong {
+  color: var(--footer-teal);
+}
+
+/* Logo created with CSS — no icon library required */
+.pj-footer__logo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  padding: 11px 10px 12px;
+  border-radius: 13px;
+  background: var(--footer-logo-bg);
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease;
+}
+
+.pj-footer__logo-dot {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 1px;
+  background: #ff5364;
+  transform: translateX(-50%);
+}
+
+.pj-footer__logo-line {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--footer-teal);
+}
+
+.pj-footer__logo-line--one {
+  width: 7px;
+}
+
+.pj-footer__logo-line--two {
+  width: 12px;
+}
+
+.pj-footer__logo-line--three {
+  width: 16px;
+}
+
+.pj-footer__brand:hover .pj-footer__logo {
+  transform: translateY(-2px);
+  background: #1a355d;
+}
+
+/* =========================================
+   DESCRIPTION AND CONTACT CTA
+========================================= */
+
+.pj-footer__description {
+  max-width: 340px;
+  margin: 0 0 14px;
+  color: var(--footer-text);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.pj-footer__contact-link {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  color: var(--footer-muted);
+  font-size: 13px;
+  line-height: 1.7;
+  text-decoration: none;
+}
+
+.pj-footer__contact-link span {
+  color: var(--footer-teal);
+  font-weight: 650;
+  transition: color 180ms ease;
+}
+
+.pj-footer__contact-link:hover span {
+  color: #ffffff;
+}
+
+/* =========================================
+   SOCIAL LINKS
+========================================= */
+
+.pj-footer__socials {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.pj-footer__social {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  flex: 0 0 39px;
+  place-items: center;
+  border: 1px solid #29416a;
+  border-radius: 50%;
+  background: transparent;
+  color: #d9e5ff;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    transform 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.pj-footer__social:hover {
+  transform: translateY(-3px);
+  border-color: var(--footer-teal);
+  background: rgb(0 211 223 / 10%);
+  color: var(--footer-teal);
+}
+
+/* =========================================
+   LINK COLUMNS
+========================================= */
+
+.pj-footer__heading {
+  margin: 3px 0 16px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.5;
+}
+
+.pj-footer__link-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pj-footer__link-list a {
+  display: inline-block;
+  color: var(--footer-text);
+  font-size: 13.5px;
+  line-height: 1.5;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.pj-footer__link-list a:hover {
+  transform: translateX(3px);
+  color: var(--footer-teal);
+}
+
+/* =========================================
+   BOTTOM BAR
+========================================= */
+
+.pj-footer__bottom {
+  display: flex;
+  min-height: 66px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 0;
+  border-top: 1px solid var(--footer-border);
+}
+
+.pj-footer__copyright {
+  margin: 0;
+  color: var(--footer-muted);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.pj-footer__legal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px 21px;
+}
+
+.pj-footer__legal a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--footer-text);
+  font-size: 12.5px;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.pj-footer__legal a:hover {
+  color: var(--footer-teal);
+}
+
+.pj-footer__legal .pj-footer__company-link {
+  color: var(--footer-teal);
+  font-weight: 700;
+}
+
+.pj-footer__company-link span {
+  transition: transform 180ms ease;
+}
+
+.pj-footer__company-link:hover span {
+  transform: translate(2px, -2px);
+}
+
+/* =========================================
+   KEYBOARD ACCESSIBILITY
+========================================= */
+
+.pj-footer a:focus-visible {
+  outline: 2px solid var(--footer-teal);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* =========================================
+   LARGE SCREENS
+========================================= */
+
+@media (min-width: 1500px) {
+  .pj-footer__container {
+    width: min(1320px, calc(100% - 96px));
+  }
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 1000px) {
+  .pj-footer__container {
+    width: calc(100% - 48px);
+    padding-top: 48px;
+  }
+
+  .pj-footer__main {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 34px 30px;
+  }
+
+  .pj-footer__brand-column {
+    grid-column: 1 / -1;
+    max-width: 480px;
+  }
+
+  .pj-footer__description {
+    max-width: 440px;
+  }
+
+  .pj-footer__bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .pj-footer__legal {
+    justify-content: flex-start;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .pj-footer {
+    border-radius: 0;
+  }
+
+  .pj-footer__container {
+    width: calc(100% - 36px);
+    padding-top: 38px;
+  }
+
+  .pj-footer__main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px 22px;
+    padding-bottom: 28px;
+  }
+
+  .pj-footer__brand-column {
+    grid-column: 1 / -1;
+  }
+
+  .pj-footer__brand {
+    font-size: 17px;
+  }
+
+  .pj-footer__description {
+    max-width: 400px;
+    font-size: 13.5px;
+  }
+
+  .pj-footer__heading {
+    margin-bottom: 13px;
+    font-size: 13.5px;
+  }
+
+  .pj-footer__link-list {
+    gap: 10px;
+  }
+
+  .pj-footer__link-list a {
+    font-size: 12.5px;
+  }
+
+  .pj-footer__bottom {
+    padding: 18px 0 22px;
+  }
+
+  .pj-footer__copyright {
+    font-size: 12px;
+  }
+
+  .pj-footer__legal {
+    justify-content: flex-start;
+    gap: 12px 18px;
+  }
+
+  .pj-footer__legal a {
+    font-size: 12px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pj-footer *,
+  .pj-footer *::before,
+  .pj-footer *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

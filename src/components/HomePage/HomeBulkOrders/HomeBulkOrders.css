@@ -1,0 +1,584 @@
+.home-bulk-orders {
+  --hbo-navy: #0b1b3b;
+  --hbo-teal: #008da0;
+  --hbo-text: #34547d;
+  --hbo-border: #dce5f1;
+
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  color: var(--hbo-navy);
+  padding: clamp(64px, 8vw, 108px) 0;
+  isolation: isolate;
+}
+
+.hbo-container {
+  width: min(100% - 64px, 1190px);
+  margin-inline: auto;
+}
+
+.hbo-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.55fr);
+  align-items: center;
+  gap: clamp(36px, 5vw, 64px);
+}
+
+.hbo-intro {
+  min-width: 0;
+}
+
+.hbo-eyebrow {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: var(--hbo-teal);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  line-height: 1.5;
+}
+
+.hbo-intro h2 {
+  margin: 0;
+  color: var(--hbo-navy);
+  font-family: inherit;
+  font-size: clamp(34px, 3.25vw, 43px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.13;
+  text-wrap: balance;
+}
+
+.hbo-intro__description {
+  max-width: 380px;
+  margin: 20px 0 20px;
+  color: var(--hbo-text);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.hbo-cta {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 23px;
+  border: 1px solid var(--hbo-navy);
+  border-radius: 999px;
+  background: var(--hbo-navy);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.hbo-cta svg {
+  transition: transform 220ms ease;
+}
+
+.hbo-cta:hover {
+  transform: translateY(-3px);
+  border-color: #123363;
+  background: #123363;
+  box-shadow: 0 10px 25px rgb(11 27 59 / 16%);
+}
+
+.hbo-cta:hover svg {
+  transform: translateX(3px);
+}
+
+.hbo-cta:focus-visible,
+.hbo-card:focus-visible {
+  outline: 3px solid #00a8b8;
+  outline-offset: 4px;
+}
+
+.hbo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.hbo-card {
+  --hbo-art-bg: #e0f7fa;
+  --hbo-art-line: rgb(0 155 177 / 10%);
+
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 130px;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  overflow: hidden;
+  border: 1px solid var(--hbo-border);
+  border-radius: 20px;
+  background: #fff;
+  transform: translateY(0);
+  transition:
+    transform 280ms ease,
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.hbo-card::after {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgb(255 255 255 / 60%) 50%,
+    transparent 80%
+  );
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+}
+
+.hbo-card:hover {
+  z-index: 1;
+  transform: translateY(-5px);
+  border-color: #b9d6e7;
+  box-shadow: 0 14px 32px rgb(11 27 59 / 8%);
+}
+
+.hbo-card:hover::after {
+  opacity: 1;
+  transform: translateX(100%);
+  transition:
+    transform 650ms ease,
+    opacity 200ms ease;
+}
+
+.hbo-card__art {
+  position: relative;
+  display: grid;
+  width: 96px;
+  height: 96px;
+  flex: 0 0 96px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: var(--hbo-art-bg);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 7px,
+    var(--hbo-art-line) 7px,
+    var(--hbo-art-line) 8px
+  );
+  transition:
+    transform 300ms ease,
+    border-radius 300ms ease;
+}
+
+.hbo-card:hover .hbo-card__art {
+  transform: rotate(-3deg) scale(1.04);
+  border-radius: 19px;
+}
+
+.hbo-card__content {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  flex: 1;
+}
+
+.hbo-card__content h3 {
+  margin: 0 0 7px;
+  color: var(--hbo-navy);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: -0.25px;
+}
+
+.hbo-card__content p {
+  margin: 0;
+  color: var(--hbo-text);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.hbo-card__arrow {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e7f8fa;
+  color: var(--hbo-teal);
+  opacity: 0;
+  transform: translateX(-5px);
+  transition:
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+.hbo-card:hover .hbo-card__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Card illustration colours */
+.hbo-card--merchandise {
+  --hbo-art-bg: #e0f7fa;
+  --hbo-art-line: rgb(0 155 177 / 10%);
+}
+
+.hbo-card--personalized {
+  --hbo-art-bg: #fff0eb;
+  --hbo-art-line: rgb(255 103 73 / 11%);
+}
+
+.hbo-card--corporate {
+  --hbo-art-bg: #e8edf5;
+  --hbo-art-line: rgb(11 27 59 / 9%);
+}
+
+.hbo-card--events {
+  --hbo-art-bg: #fff1d2;
+  --hbo-art-line: rgb(218 151 25 / 10%);
+}
+
+/* Event merchandise keychain */
+.hbo-keychain {
+  position: relative;
+  width: 72px;
+  height: 48px;
+  margin-top: 12px;
+  animation: hbo-float 3.5s ease-in-out infinite;
+}
+
+.hbo-keychain__ring {
+  position: absolute;
+  top: -8px;
+  left: 7px;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #142b51;
+  border-radius: 50%;
+}
+
+.hbo-keychain__tag {
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  display: grid;
+  width: 60px;
+  height: 30px;
+  place-items: center;
+  border-radius: 14px;
+  background: #12b4c5;
+  box-shadow: 4px 4px 0 #078b9b;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 900;
+}
+
+/* Personalised nameplate */
+.hbo-nameplate {
+  display: grid;
+  width: 70px;
+  height: 36px;
+  place-items: center;
+  padding: 4px;
+  border: 3px solid #ff694c;
+  border-radius: 9px;
+  background: #ff694c;
+  box-shadow: 3px 4px 0 #e94d34;
+  transform: perspective(100px) rotateY(-7deg);
+  transition: transform 300ms ease;
+}
+
+.hbo-card:hover .hbo-nameplate {
+  transform: perspective(100px) rotateY(7deg) scale(1.05);
+}
+
+.hbo-nameplate span {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 75%);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+/* Corporate desk organiser */
+.hbo-organizer {
+  position: relative;
+  width: 58px;
+  height: 58px;
+}
+
+.hbo-organizer__base {
+  position: absolute;
+  bottom: 7px;
+  left: 2px;
+  width: 54px;
+  height: 13px;
+  border-radius: 4px;
+  background: #304b7c;
+}
+
+.hbo-organizer__body {
+  position: absolute;
+  right: 2px;
+  bottom: 7px;
+  width: 28px;
+  height: 32px;
+  border-radius: 4px;
+  background: #15294e;
+}
+
+.hbo-organizer__pen {
+  position: absolute;
+  bottom: 34px;
+  width: 3px;
+  height: 25px;
+  border-radius: 3px;
+  background: #15294e;
+  transform-origin: bottom;
+  transition: transform 250ms ease;
+}
+
+.hbo-organizer__pen--one {
+  left: 33px;
+  transform: rotate(-9deg);
+}
+
+.hbo-organizer__pen--two {
+  left: 41px;
+  height: 29px;
+  background: #ff694c;
+}
+
+.hbo-organizer__pen--three {
+  left: 48px;
+  transform: rotate(8deg);
+}
+
+.hbo-card:hover .hbo-organizer__pen--one {
+  transform: rotate(-17deg);
+}
+
+.hbo-card:hover .hbo-organizer__pen--three {
+  transform: rotate(17deg);
+}
+
+/* Gift box */
+.hbo-gift {
+  position: relative;
+  width: 54px;
+  height: 54px;
+}
+
+.hbo-gift__box {
+  position: absolute;
+  right: 3px;
+  bottom: 7px;
+  left: 3px;
+  height: 32px;
+  border-radius: 4px;
+  background: #e5a21b;
+  box-shadow: 0 5px 0 rgb(178 117 6 / 15%);
+  transition: transform 250ms ease;
+}
+
+.hbo-gift__ribbon {
+  position: absolute;
+  top: 14px;
+  bottom: 7px;
+  left: 24px;
+  width: 7px;
+  background: #15294e;
+}
+
+.hbo-gift__bow {
+  position: absolute;
+  top: 5px;
+  width: 17px;
+  height: 10px;
+  border-radius: 100% 100% 20% 20%;
+  background: #15294e;
+}
+
+.hbo-gift__bow--left {
+  left: 11px;
+  transform: rotate(28deg);
+}
+
+.hbo-gift__bow--right {
+  right: 10px;
+  transform: rotate(-28deg);
+}
+
+.hbo-card:hover .hbo-gift__box {
+  transform: translateY(-3px);
+}
+
+/* Reveal on entering and re-entering the section */
+.hbo-reveal,
+.hbo-card {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    border-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.hbo-intro.hbo-reveal {
+  transition-delay: 80ms;
+}
+
+.hbo-card {
+  transition-delay: calc(var(--hbo-index, 0) * 110ms);
+}
+
+.hbo--visible .hbo-reveal,
+.hbo--visible .hbo-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hbo--visible .hbo-card:hover {
+  transform: translateY(-5px);
+}
+
+@keyframes hbo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .hbo-container {
+    width: min(100% - 48px, 760px);
+  }
+
+  .hbo-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hbo-intro h2 {
+    font-size: clamp(34px, 5vw, 42px);
+  }
+
+  .hbo-intro__description {
+    max-width: 600px;
+  }
+
+  .hbo-card {
+    min-height: 132px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .home-bulk-orders {
+    padding: 58px 0;
+  }
+
+  .hbo-container {
+    width: calc(100% - 36px);
+  }
+
+  .hbo-layout {
+    gap: 28px;
+  }
+
+  .hbo-eyebrow {
+    margin-bottom: 15px;
+    font-size: 11px;
+  }
+
+  .hbo-intro h2 {
+    font-size: clamp(30px, 8vw, 38px);
+    letter-spacing: -1px;
+  }
+
+  .hbo-intro__description {
+    margin: 16px 0 20px;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .hbo-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .hbo-card {
+    min-height: 112px;
+    gap: 14px;
+    padding: 13px;
+    border-radius: 16px;
+  }
+
+  .hbo-card__art {
+    width: 82px;
+    height: 82px;
+    flex-basis: 82px;
+  }
+
+  .hbo-card__content h3 {
+    font-size: 15px;
+  }
+
+  .hbo-card__content p {
+    font-size: 13px;
+  }
+
+  .hbo-card__arrow {
+    width: 25px;
+    height: 25px;
+    flex-basis: 25px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .hbo-cta {
+    min-height: 46px;
+    padding-inline: 19px;
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-bulk-orders *,
+  .home-bulk-orders *::before,
+  .home-bulk-orders *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  .hbo-reveal,
+  .hbo-card {
+    opacity: 1;
+    transform: none;
+  }
+}

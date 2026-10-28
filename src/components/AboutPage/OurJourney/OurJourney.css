@@ -1,0 +1,226 @@
+.our-journey {
+  --journey-navy: #0b1b3a;
+  --journey-teal: #12b7c9;
+  --journey-coral: #ff6b55;
+  --journey-purple: #8170ff;
+  --journey-gold: #ffb52e;
+  --journey-muted: #536b91;
+  --journey-border: #dfe6f1;
+  --journey-background: #f5f8fc;
+
+  width: 100%;
+  padding: 44px 0 70px;
+  background: var(--journey-background);
+  color: var(--journey-navy);
+  font-family: "Segoe UI", Arial, sans-serif;
+  overflow: clip;
+}
+
+.our-journey *,
+.our-journey *::before,
+.our-journey *::after {
+  box-sizing: border-box;
+}
+
+.our-journey__container {
+  width: min(100% - 48px, 1184px);
+  margin-inline: auto;
+}
+
+/* Section heading */
+
+.our-journey__header {
+  margin-bottom: 32px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 650ms ease,
+    transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.our-journey.is-visible .our-journey__header {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.our-journey__eyebrow {
+  margin: 0 0 12px;
+  color: #008d9b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.5;
+}
+
+.our-journey__title {
+  margin: 0;
+  color: var(--journey-navy);
+  font-size: clamp(30px, 3vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.2;
+}
+
+/* Journey cards */
+
+.our-journey__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.our-journey__card {
+  min-width: 0;
+  min-height: 206px;
+  padding: 22px;
+  border: 1px solid var(--journey-border);
+  border-radius: 18px;
+  background: #fff;
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 600ms ease,
+    transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+  transition-delay: 0ms;
+}
+
+.our-journey.is-visible .our-journey__card {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--card-index) * 110ms);
+}
+
+.our-journey__card:hover {
+  border-color: #cbd8e8;
+  box-shadow: 0 12px 28px rgb(11 27 58 / 7%);
+  transform: translateY(-4px);
+}
+
+.our-journey__accent {
+  display: block;
+  width: 40px;
+  height: 4px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 450ms ease;
+  transition-delay: 150ms;
+}
+
+.our-journey.is-visible .our-journey__accent {
+  transform: scaleX(1);
+}
+
+.our-journey__card--teal .our-journey__accent {
+  background: var(--journey-teal);
+}
+
+.our-journey__card--coral .our-journey__accent {
+  background: var(--journey-coral);
+}
+
+.our-journey__card--purple .our-journey__accent {
+  background: var(--journey-purple);
+}
+
+.our-journey__card--gold .our-journey__accent {
+  background: var(--journey-gold);
+}
+
+.our-journey__label {
+  margin: 0 0 9px;
+  color: var(--journey-muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+}
+
+.our-journey__card-title {
+  margin: 0 0 9px;
+  color: var(--journey-navy);
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -0.35px;
+  line-height: 1.25;
+}
+
+.our-journey__description {
+  margin: 0;
+  color: var(--journey-muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .our-journey {
+    padding-block: 40px 56px;
+  }
+
+  .our-journey__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .our-journey__card {
+    min-height: 180px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .our-journey {
+    padding-block: 32px 44px;
+  }
+
+  .our-journey__container {
+    width: calc(100% - 32px);
+  }
+
+  .our-journey__header {
+    margin-bottom: 22px;
+  }
+
+  .our-journey__title {
+    font-size: 30px;
+    letter-spacing: -0.9px;
+  }
+
+  .our-journey__grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .our-journey__card {
+    min-height: auto;
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .our-journey__card-title {
+    font-size: 16px;
+  }
+
+  .our-journey__description {
+    font-size: 13px;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .our-journey__header,
+  .our-journey__card,
+  .our-journey__accent {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,2 @@
+import { useReducedMotion, motion } from 'framer-motion';
+export default function Reveal({children,className='',delay=0,as='div'}){const reduce=useReducedMotion();const Tag=motion[as]||motion.div;return <Tag className={className} initial={reduce?false:{opacity:0,y:18}} whileInView={reduce?{}:{opacity:1,y:0}} viewport={{once:true,amount:.12}} transition={{duration:.5,delay,ease:[.22,1,.36,1]}}>{children}</Tag>}
